@@ -47,7 +47,7 @@ node[:applications].each do |app_name,data|
     user 'postgres'
   end
 
-  template "/data/#{app_name}/shared/config/database.yml" do
+  template "/data/#{app_name}/shared/config/database.yml.psql" do
     source "database.yml.erb"
     owner #{user[:username]}
     group #[user[:username]}
