@@ -1,0 +1,6 @@
+<%= @node[:environment][:framework_env] %>:
+  adapter:   postgresql
+  database:  <%= @app_name %>_<%= @node[:enfironment][:framework_env] %>
+  username:  <%= @app_name %>
+  password:  <%= @node[:users][:username] %>
+  host:      <%= @node[:db_host] %>
