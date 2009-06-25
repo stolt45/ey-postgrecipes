@@ -57,4 +57,10 @@ node[:applications].each do |app_name,data|
         :db_pass => user[:password]
     })
   end
+
+  execute "custom-symlinks" do
+    command "ln -nfs /data/#{app_name}/current/config/database.yml /data/#{app_name}/shared/config/database.yml.psql
+    action :run
+    user #{user[:username]}
+  end
 end
