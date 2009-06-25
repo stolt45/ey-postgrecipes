@@ -2,5 +2,5 @@
   adapter:   postgresql
   database:  <%= @app_name %>_<%= @node[:environment][:framework_env] %>
   username:  <%= @app_name %>
-  password:  password
+  password:  <%= @db_pass %>
   host:      <%= @node[:db_host] %>

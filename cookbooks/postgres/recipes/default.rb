@@ -54,6 +54,7 @@ node[:applications].each do |app_name,data|
     mode 0744
     variables({
         :app_name => app_name
+        :db_pass => user[:password]
     })
   end
 end
