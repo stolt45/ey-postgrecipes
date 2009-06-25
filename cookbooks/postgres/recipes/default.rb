@@ -49,11 +49,11 @@ node[:applications].each do |app_name,data|
 
   template "/data/#{app_name}/shared/config/database.yml.psql" do
     source "database.yml.erb"
-    owner #{user[:username]}
-    group #[user[:username]}
+    owner user[:username]
+    group user[:username]
     mode 0744
     variables({
-        :app_name => app_name
+        :app_name => app_name,
         :db_pass => user[:password]
     })
   end
