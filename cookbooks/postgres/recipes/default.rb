@@ -47,7 +47,7 @@ node[:applications].each do |app_name,data|
     user 'postgres'
   end
 
-  template "/data/#{app_name}/shared/config/database.yml.psql" do
+  template "/data/#{app_name}/shared/config/database.yml" do
     source "database.yml.erb"
     owner user[:username]
     group user[:username]
@@ -58,9 +58,9 @@ node[:applications].each do |app_name,data|
     })
   end
 
-  execute "custom-symlinks" do
-    command "ln -nfs /data/#{app_name}/shared/config/database.yml.psql /data/#{app_name}/current/config/database.yml"
-    action :run
-    user #{user[:username]}
-  end
+#  execute "custom-symlinks" do
+#   command "ln -nfs /data/#{app_name}/shared/config/database.yml.psql /data/#{app_name}/current/config/database.yml"
+#    action :run
+#    user #{user[:username]}
+#  end
 end
